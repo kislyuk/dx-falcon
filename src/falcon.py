@@ -7,12 +7,14 @@ import dxpy
 def main(reads, length_cutoff, preassembly_length_cutoff, config_file=None):
     reads = [dxpy.DXFile(item) for item in reads]
 
-    for i, f in enumerate(reads):
-        dxpy.download_dxfile(f.get_id(), "reads-" + str(i))
+    with open("input.fofn", "w") as fofn:
+        for i, f in enumerate(reads):
+            dxpy.download_dxfile(f.get_id(), f.name)
+            fofn.write(f.name + "\n")
 
     if config_file:
         dxpy.download_dxfile(dxpy.DXFile(config_file).get_id(), "falcon.cfg")
-
+            
     subprocess.check_call(["fc_run.py", "falcon.cfg"])
 
     raise dxpy.AppInternalError("WIP")
