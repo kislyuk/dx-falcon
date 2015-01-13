@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import os
+import os, sys, subprocess
 import dxpy
 
 @dxpy.entry_point('main')
