@@ -20,7 +20,7 @@
       "default": 12000
     },
     {
-      "name": "length_cutoff_pr",
+      "name": "preassembly_length_cutoff",
       "label": "Length cutoff (pre-assembly)",
       "class": "int",
       "optional": true,
