@@ -25,6 +25,13 @@
       "class": "int",
       "optional": true,
       "default": 12000
+    },
+    {
+      "name": "config_file",
+      "label": "Config file",
+      "class": "file",
+      "optional": true,
+      "group": "Advanced"
     }
   ],
   "outputSpec": [
