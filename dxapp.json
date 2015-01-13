@@ -1,0 +1,42 @@
+{
+  "name": "falcon",
+  "title": "Falcon",
+  "summary": "Falcon Genome Assembly Toolkit",
+  "dxapi": "1.0.0",
+  "version": "0.0.1",
+  "categories": [],
+  "inputSpec": [
+    {
+      "name": "reads",
+      "label": "Reads",
+      "class": "array:file",
+      "optional": false
+    },
+    {
+      "name": "length_cutoff",
+      "label": "Length cutoff",
+      "class": "int",
+      "optional": true,
+      "default": 12000
+    },
+    {
+      "name": "length_cutoff_pr",
+      "label": "Length cutoff (pre-assembly)",
+      "class": "int",
+      "optional": true,
+      "default": 12000
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "assembly",
+      "label": "Assembly",
+      "class": "file"
+    }
+  ],
+  "runSpec": {
+    "interpreter": "python2.7",
+    "file": "src/falcon.py"
+  },
+  "authorizedUsers": []
+}
