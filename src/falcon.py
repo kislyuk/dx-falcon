@@ -7,15 +7,15 @@ import dxpy
 def main(reads, length_cutoff, preassembly_length_cutoff, config_file=None):
     reads = [dxpy.DXFile(item) for item in reads]
 
-    with open("input.fofn", "w") as fofn:
+    with open("falcon/input.fofn", "w") as fofn:
         for i, f in enumerate(reads):
-            dxpy.download_dxfile(f.get_id(), f.name)
+            dxpy.download_dxfile(f.get_id(), os.path.join("falcon", f.name))
             fofn.write(f.name + "\n")
 
     if config_file:
-        dxpy.download_dxfile(dxpy.DXFile(config_file).get_id(), "falcon.cfg")
-            
-    subprocess.check_call(["fc_run.py", "falcon.cfg"])
+        dxpy.download_dxfile(dxpy.DXFile(config_file).get_id(), "falcon/falcon.cfg")
+    
+    subprocess.check_call(["fc_run.py", "falcon.cfg"], cwd="falcon")
 
     raise dxpy.AppInternalError("WIP")
 
@@ -28,6 +28,7 @@ def main(reads, length_cutoff, preassembly_length_cutoff, config_file=None):
 
 @dxpy.entry_point('run_script')
 def run_script(script_file):
-    print "run_script invoked with", script_file
+    dxpy.download_dxfile(dxpy.DXFile(script_file).get_id(), "run.sh")
+    subprocess.check_call(["run.sh"], cwd="falcon")
 
 dxpy.run()
