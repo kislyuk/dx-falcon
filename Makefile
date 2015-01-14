@@ -5,10 +5,12 @@ gitmodules:
 	git submodule update
 
 pypeFLOW: gitmodules
-	(cd pypeFLOW; python setup.py install --root ../resources)
+	(cd pypeFLOW; rm -rf dist; python setup.py sdist)
+	pip install --root "$$(pwd)/resources" --ignore-installed pypeFLOW/dist/*.tar.gz
 
 FALCON: gitmodules
-	(cd FALCON; python setup.py install --root ../resources)
+	(cd FALCON; rm -rf dist; python setup.py sdist)
+	pip install --root "$$(pwd)/resources" --ignore-installed FALCON/dist/*.tar.gz
 
 DAZZ_DB: gitmodules
 	$(MAKE) -C DAZZ_DB
