@@ -26,4 +26,8 @@ def main(reads, length_cutoff, preassembly_length_cutoff, config_file=None):
 
     return output
 
+@dxpy.entry_point('run_script')
+def run_script(script_file):
+    print "run_script invoked with", script_file
+
 dxpy.run()

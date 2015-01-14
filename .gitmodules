@@ -3,7 +3,7 @@
 	url = https://github.com/cschin/pypeFLOW
 [submodule "FALCON"]
 	path = FALCON
-	url = https://github.com/PacificBiosciences/FALCON
+	url = https://github.com/kislyuk/FALCON
 [submodule "DAZZ_DB"]
 	path = DAZZ_DB
 	url = https://github.com/pb-jchin/DAZZ_DB
