@@ -46,7 +46,12 @@
     "file": "src/falcon.py",
     "execDepends": [
       {"name": "sshfs"}
-    ]
+    ],
+    "systemRequirements": {
+      "main": {
+        "instanceType": "mem2_ssd1_x4"
+      }
+    }
   },
   "access": {
     "network": ["*"]
