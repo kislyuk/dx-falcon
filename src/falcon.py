@@ -43,6 +43,6 @@ def run_script(script_file, origin_job_addr):
     dxpy.download_dxfile(dxpy.DXFile(script_file).get_id(), "run.sh")
     time.sleep(1)
     subprocess.check_call(["sshfs", "-o", "StrictHostKeyChecking=no", "-o", "IdentityFile=/home/dnanexus/id_rsa", "dnanexus@{}:{}".format(origin_job_addr, wd), wd])
-    subprocess.check_call("set -ex; source ../run.sh", shell=True, executable="/bin/bash", cwd=wd)
+    subprocess.check_call("set -e; source ../run.sh", shell=True, executable="/bin/bash", cwd=wd)
 
 dxpy.run()
