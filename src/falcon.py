@@ -29,7 +29,7 @@ def main(reads, length_cutoff, preassembly_length_cutoff, config_file=None):
     shutil.copy("falcon.cfg", wd)
     subprocess.check_call(["fc_run.py", "falcon.cfg"], cwd=wd)
 
-    assembly = dxpy.upload_local_file("assembly")
+    assembly = dxpy.upload_local_file(os.path.join(wd, "2-asm-falcon/p_ctg.fa"))
 
     output = {}
     output["assembly"] = dxpy.dxlink(assembly)
