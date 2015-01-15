@@ -43,7 +43,13 @@
   ],
   "runSpec": {
     "interpreter": "python2.7",
-    "file": "src/falcon.py"
+    "file": "src/falcon.py",
+    "execDepends": [
+      {"name": "sshfs"}
+    ]
+  },
+  "access": {
+    "network": ["*"]
   },
   "authorizedUsers": []
 }
