@@ -32,6 +32,24 @@
       "class": "file",
       "optional": true,
       "group": "Advanced"
+    },
+    {
+      "name": "script_file",
+      "class": "file",
+      "optional": true,
+      "group": "Internal"
+    },
+    {
+      "name": "fs_key",
+      "class": "file",
+      "optional": true,
+      "group": "Internal"
+    },
+    {
+      "name": "origin_job_addr",
+      "class": "string",
+      "optional": true,
+      "group": "Internal"
     }
   ],
   "outputSpec": [
@@ -49,7 +67,12 @@
     ],
     "systemRequirements": {
       "main": {
-        "instanceType": "mem2_ssd1_x4"
+        "instanceType": "mem2_hdd2_x2"
+      }
+    },
+    "executionPolicy": {
+      "restartOn": {
+        "*": 1
       }
     }
   },
